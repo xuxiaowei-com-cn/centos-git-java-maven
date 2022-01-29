@@ -10,6 +10,7 @@ build:
     - apt-get update
     - apt-get install -y ca-certificates curl gnupg lsb-release
     - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    - apt-get update
     - apt-get install -y docker-ce docker-ce-cli containerd.io
     - wget --content-disposition https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.9.10_jdk8u312-ga/Alibaba_Dragonwell_8.9.10_x64_linux.tar.gz
     - wget --content-disposition https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
