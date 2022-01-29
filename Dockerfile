@@ -1,8 +1,15 @@
 FROM centos:centos7.9.2009
 
-ADD git-2.35.1.tar.gz /usr/lib/
-ADD apache-maven-3.6.3-bin.tar.gz /usr/lib/
-ADD alibaba_dragonwell_8.9.10_x64_linux.tar.gz /usr/lib/
+RUN yum install -y wget
+
+WORKDIR /usr/lib/
+RUN wget --content-disposition https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.9.10_jdk8u312-ga/Alibaba_Dragonwell_8.9.10_x64_linux.tar.gz
+RUN wget --content-disposition https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+RUN wget --content-disposition https://github.com/git/git/archive/refs/tags/v2.35.1.tar.gz
+
+RUN tar -zxvf git-2.35.1.tar.gz
+RUN tar -zxvf apache-maven-3.6.3-bin.tar.gz
+RUN tar -zxvf alibaba_dragonwell_8.9.10_x64_linux.tar.gz
 
 # git 安装
 RUN yum -y install make gcc openssl-devel curl-devel expat-devel gettext-devel
