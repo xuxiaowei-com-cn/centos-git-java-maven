@@ -7,13 +7,13 @@ RUN wget --content-disposition https://github.com/alibaba/dragonwell8/releases/d
 RUN wget --content-disposition https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 RUN wget --content-disposition https://github.com/git/git/archive/refs/tags/v2.22.0.tar.gz
 
-RUN tar -zxvf git-2.35.1.tar.gz
+RUN tar -zxvf git-2.22.0.tar.gz
 RUN tar -zxvf apache-maven-3.6.3-bin.tar.gz
 RUN tar -zxvf Alibaba_Dragonwell_8.9.10_x64_linux.tar.gz
 
 # git 安装
 RUN yum -y install make gcc openssl-devel curl-devel expat-devel zlib-devel
-WORKDIR /usr/lib/git-2.35.1
+WORKDIR /usr/lib/git-2.22.0
 RUN ls
 RUN make
 RUN make install
