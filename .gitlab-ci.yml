@@ -10,11 +10,11 @@ build:
   stage: build
   script:
     - yum install -y yum-utils device-mapper-persistent-data lvm2
-    - sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-    - sudo yum install -y docker-ce
-    - sudo systemctl status docker.service
-    - sudo systemctl start docker.service
-    - sudo systemctl enable docker.service
+    - yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    - yum install -y docker-ce
+    - systemctl status docker.service
+    - systemctl start docker.service
+    - systemctl enable docker.service
     - systemctl list-unit-files | grep docker
     - wget --content-disposition https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.9.10_jdk8u312-ga/Alibaba_Dragonwell_8.9.10_x64_linux.tar.gz
     - wget --content-disposition https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
