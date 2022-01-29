@@ -1,16 +1,24 @@
 stages:
   - build
 
+image: centos:centos8.4.2105
+
 #
 # build
 #
 build:
   stage: build
   script:
-    - curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+    - yum install -y yum-utils device-mapper-persistent-data lvm2
+    - sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    - sudo yum install -y docker-ce
+    - sudo systemctl status docker.service
+    - sudo systemctl start docker.service
+    - sudo systemctl enable docker.service
+    - systemctl list-unit-files | grep docker
     - wget --content-disposition https://github.com/alibaba/dragonwell8/releases/download/dragonwell-8.9.10_jdk8u312-ga/Alibaba_Dragonwell_8.9.10_x64_linux.tar.gz
     - wget --content-disposition https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
     - wget --content-disposition https://github.com/git/git/archive/refs/tags/v2.35.1.tar.gz
-    - service docker start && usermod -aG docker $USER && docker build -t centos-git-java-maven:0.0.1 .
+    - docker build -t centos-git-java-maven:0.0.1 .
   only:
     - build
