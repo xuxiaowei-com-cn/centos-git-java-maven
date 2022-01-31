@@ -17,6 +17,8 @@ WORKDIR /usr/lib/git-2.22.0
 RUN ls
 RUN make
 RUN make install
+RUN mv /usr/bin/git /usr/bin/git-bak
+RUN ln -s /root/bin/git /usr/bin/git
 WORKDIR /
 RUN ls
 RUN git --version
