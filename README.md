@@ -10,7 +10,7 @@ docker run \
 -itd \
 --privileged=true \
 --name centos-git-java-maven_0.0.2 \
--p 1001:1001 \
+-p 1002:1002 \
 -v /home/data/centos-git-java-maven/:/home \
 centos-git-java-maven:0.0.2
 ```
