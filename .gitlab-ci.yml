@@ -12,4 +12,4 @@ build:
     - wget --content-disposition https://github.com/git/git/archive/refs/tags/v2.35.1.tar.gz
     - docker build -t centos-git-java-maven:0.0.1 .
   only:
-    - build
+    - main
