@@ -1,6 +1,6 @@
 FROM centos:centos7.9.2009
 
-ADD git-2.35.1.tar.gz /usr/lib/
+ADD v2.35.1.tar.gz /usr/lib/
 ADD apache-maven-3.6.3-bin.tar.gz /usr/lib/
 ADD Alibaba_Dragonwell_8.9.10_x64_linux.tar.gz /usr/lib/
 
