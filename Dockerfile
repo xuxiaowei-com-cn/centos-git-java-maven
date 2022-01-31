@@ -5,7 +5,7 @@ ADD apache-maven-3.6.3-bin.tar.gz /usr/lib/
 ADD Alibaba_Dragonwell_8.9.10_x64_linux.tar.gz /usr/lib/
 
 # git 安装
-RUN yum -y install make gcc openssl-devel curl-devel expat-devel gettext-devel
+RUN yum -y install make gcc openssl-devel curl-devel expat-devel zlib-devel gettext-devel
 WORKDIR /usr/lib/git-2.35.1
 RUN ls
 RUN make
